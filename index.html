@@ -1,0 +1,32 @@
+<html>
+<body>
+<p id="skey"></p>
+<script>
+
+  const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+function generateString(length) {
+    let result = ' ';
+    const charactersLength = characters.length;
+    for ( let i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+
+    return result;
+}
+
+function ConvertStringToHex(str) {
+    var arr = [];
+    for (var i = 0; i < str.length; i++) {
+            arr[i] = (str.charCodeAt(i).toString(16)).slice(-4);
+    }
+    
+   
+    return arr.join('');
+}
+
+
+document.getElementById("skey").innerHTML =ConvertStringToHex(generateString(20));
+</script>
+</body>
+</html>
